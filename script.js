@@ -141,3 +141,14 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById('modal-cerrar')?.addEventListener('click', () => {
     document.getElementById('modal-proyecto').classList.remove('activo');
 });
+
+document.querySelectorAll('nav a[href^="#"]').forEach(enlace => {
+    enlace.addEventListener('click', function(e) {
+        const destino = document.querySelector(this.getAttribute('href'));
+        if (destino) {
+            e.preventDefault();
+            destino.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
