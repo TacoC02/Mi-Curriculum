@@ -987,3 +987,158 @@ footer::before {
     60% { transform: scale(1.4) rotate(10deg);}
     100% { transform: scale(1) rotate(0);}
 }
+
+@media (max-width: 900px) {
+    .Habilidadess {
+        flex-direction: column;
+        gap: 32px;
+        align-items: stretch;
+    }
+    .habilidades_tecnicas, .habilidades_blandas {
+        min-width: unset;
+        max-width: 100%;
+    }
+    .proyectos-carrusel {
+        width: 100vw;
+        max-width: 100%;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        padding: 18px 6px 10px 6px;
+    }
+    .perfil {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 0;
+    }
+    .perfil-img {
+        width: 100px;
+        height: 100px;
+    }
+    .perfil-info h1 {
+        font-size: 2rem;
+    }
+    nav {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    section {
+        padding: 18px 6px;
+        margin-bottom: 12px;
+    }
+    .sobre-mi-contenedor {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 6px;
+    }
+    .sobre-mi-titulo {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+    .proyectos-carrusel {
+        width: 100vw;
+        max-width: 100%;
+        gap: 8px;
+        padding: 10px 0 10px 0;
+    }
+    .proyectos-carrusel a {
+        width: 140px;
+        min-width: 140px;
+        max-width: 140px;
+    }
+    .proyectos-carrusel img {
+        height: 70px;
+    }
+    .carrusel-btn {
+        width: 36px;
+        height: 80px;
+        font-size: 1.2rem;
+        margin: 0 4px;
+    }
+    #proyectos {
+        padding: 24px 0;
+        border-radius: 10px;
+    }
+    #proyectos::before,
+    #proyectos::after {
+        width: 22px;
+        height: 22px;
+        left: 8px;
+        right: 8px;
+    }
+    footer {
+        padding: 1.2rem 0 0.3rem;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 4px;
+        font-size: 0.92rem;
+        padding: 0.5rem 0 0.2rem 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .proyectos-carrusel a {
+        width: 100px;
+        min-width: 100px;
+        max-width: 100px;
+    }
+    .proyectos-carrusel img {
+        height: 48px;
+    }
+    .fila-habilidades-blandas {
+        gap: 8px 8px;
+    }
+    .habilidad {
+        min-width: 90px;
+        max-width: 120px;
+        font-size: 0.9rem;
+    }
+}
+
+#sobre-mi .sobre-mi-contenedor,
+#habilidades .Habilidadess {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+#sobre-mi .sobre-mi-contenedor {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 22px;
+    background: rgba(24, 31, 42, 0.85);
+    border-radius: 16px;
+    box-shadow: 0 2px 16px 0 #181f2a33;
+    padding: 28px 24px;
+    margin-top: 18px;
+    transition: box-shadow 0.25s, background 0.25s;
+}
+
+#habilidades .Habilidadess {
+    width: 100%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 60px;
+}
+
+#sobre-mi .sobre-mi-titulo,
+#habilidades .sobre-mi-titulo {
+    text-align: center;
+    width: 100%;
+}
+
