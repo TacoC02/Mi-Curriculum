@@ -1102,16 +1102,16 @@ footer::before {
 
 @media (max-width: 700px) {
     .barra {
-        max-width: 300px;
+        max-width: 100vw;
         min-width: 0;
-        width: 100%;
+        width: 400px;
     }
 }
 @media (max-width: 500px) {
     .barra {
-        max-width: 300px;
+        max-width: 100vw;
         min-width: 0;
-        width: 100%;
+        width: 400px;
     }
 }
 
