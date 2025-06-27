@@ -1158,19 +1158,22 @@ footer::before {
 }
 
 @media (max-width: 700px) {
-    .habilidades_tecnicas, .habilidades_blandas, .Habilidadess, .sobre-mi-contenedor {
+    .habilidades_tecnicas,
+    .habilidades_blandas,
+    .Habilidadess,
+    .sobre-mi-contenedor {
         width: 100vw !important;
         max-width: 100vw !important;
         min-width: 0 !important;
         box-sizing: border-box;
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
     .barra {
         width: 100vw !important;
         max-width: 100vw !important;
         min-width: 0 !important;
-        margin-left: -12px;
-        margin-right: -12px;
+        margin-left: calc(-50vw + 50%) !important;
+        margin-right: calc(-50vw + 50%) !important;
     }
 }
