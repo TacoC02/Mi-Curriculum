@@ -27,11 +27,13 @@
             </div>
         </div>
         <nav>
-            <a href="#sobre-mi">Sobre mí</a>
-            <a href="#habilidades">Habilidades</a>
-            <a href="#proyectos">Proyectos</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
+    <a href="#sobre-mi"><i class="fas fa-user-astronaut"></i> Sobre mí</a>
+    <a href="#habilidades"><i class="fas fa-tools"></i> Habilidades</a>
+    <a href="#proyectos"><i class="fas fa-gamepad"></i> Proyectos</a>
+    <a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a>
+    <a href="#metas-y-objetivos"><i class="fas fa-bullseye"></i> Metas y Objetivos</a>
+    <a href="#estudios"><i class="fas fa-graduation-cap"></i> Educacion</a>
+</nav>
     </header>
     <section id="sobre-mi">
     <h2 class="sobre-mi-titulo">Sobre mí</h2>
@@ -163,6 +165,109 @@
     </div>
 </div>
 </section>
+<section id="metas-y-objetivos">
+    <h2 class="sobre-mi-titulo">Metas y Objetivos</h2>
+    <div class="sobre-mi-contenedor metas-timeline-contenedor">
+        <div class="sobre-mi-icono">
+            <i class="fas fa-bullseye"></i>
+        </div>
+        <div class="timeline">  
+            <!-- Corto plazo -->
+            <div class="timeline-item">
+                <div class="timeline-icon corto"><i class="fas fa-bolt"></i></div>
+                <div class="timeline-content">
+                    <h4>Corto Plazo</h4>
+                    <ul>
+                        <li>Aprender <b>Unity y C++</b> en 2025-2026 <span class="timeline-hito">🎮</span></li>
+                        <li>Participar en un <b>hackatón</b> <span class="timeline-hito">🏆</span></li>
+                        <li>Mejorar el ingles y hablarlo mucho mejor <span class="timeline-hito">🌍</span></li>
+                        <li>terminar los <b>estudios</b> con buenas notas <span class="timeline-hito">🏫</span></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Mediano plazo -->
+            <div class="timeline-item">
+                <div class="timeline-icon mediano"><i class="fas fa-hourglass-half"></i></div>
+                <div class="timeline-content">
+                    <h4>Mediano Plazo</h4>
+                    <ul>
+                        <li>Desarrollar y publicar un <b>videojuego propio</b> <span class="timeline-hito">🕹️</span></li>
+                        <li>Contribuir a <b>proyectos</b> de otras personas para <b>adquirir mas conocimientos</b> <span class="timeline-hito">🌐</span></li>
+                        <li>Formar parte de un <b>equipo creativo</b> <span class="timeline-hito">🤝</span></li>
+                        <li>Explorar nuevas tecnologías y tendencias <span class="timeline-hito">🔍</span></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Largo plazo -->
+            <div class="timeline-item">
+                <div class="timeline-icon largo"><i class="fas fa-flag-checkered"></i></div>
+                <div class="timeline-content">
+                    <h4>Largo Plazo</h4>
+                    <ul>
+                        <li>Posicionar mi videojuego en el mercado <span class="timeline-hito">🏅</span></li>
+                        <li>Ser referente en desarrollo web y juegos <span class="timeline-hito">🌟</span></li>
+                        <li>Continuar aprendiendo y creciendo profesionalmente <span class="timeline-hito">📚</span></li>
+                        <li>Trabajar para una empresa grande ejerciendo la programacion <span class="timeline-hito">💼</span></li>
+                        <li>Viajar<span class="timeline-hito">✈️</span></li>
+                        <li>Colaborar en proyectos internacionales <span class="timeline-hito">🌍</span></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Barra de progreso ejemplo -->
+            <div class="timeline-item progreso">
+                <div class="timeline-icon progreso"><i class="fas fa-trophy"></i></div>
+                <div class="timeline-content">
+                    <h4>Progreso de Objetivo Principal</h4>
+                    <div class="progreso-label">Desarrollo del juego: <b>1%</b></div>
+                    <div class="progreso-barra">
+                        <div class="progreso-barra-llenado" style="width: 20%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="metas-gif-contenedor">
+    <img src="imagenes/gameboy2.gif" alt="Gameboy Pixel Art" class="metas-gif">
+</div>
+    </div>
+</section>
+<section id="estudios">
+    <h2 class="sobre-mi-titulo">Estudios</h2>
+    <div class="estudios-tarjetas-contenedor">
+        <!-- Tarjeta 1: Universidad -->
+        <div class="estudio-tarjeta">
+            <div class="estudio-logo">
+                <img src="imagenes/fya.png" alt="Colegio" />
+            </div>
+            <div class="estudio-info">
+                <h3>Unidad Educativa Privada Fe y Alegria</h3>
+                <span class="estudio-fecha">2012 - Actualidad</span>
+                <p>Estudiante de Informática</p>
+            </div>
+        </div>
+        <!-- Tarjeta 2: Curso -->
+        <div class="estudio-tarjeta">
+            <div class="estudio-logo">
+                <img src="imagenes/ee.jpg" alt="Espacio Educa" />
+            </div>
+            <div class="estudio-info">
+                <h3>Curso Básico de Programación Espacio Educa</h3>
+                <span class="estudio-fecha">2024 - 2025</span>
+                <p>Desarrollador web</p>
+                <button class="certificado-btn" id="btn-certificado" title="Ver certificado">
+                    <i class="fa-solid fa-address-book"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal para el certificado -->
+<div id="modal-certificado" class="modal-proyecto">
+    <div class="modal-contenido" style="max-width:400px;">
+        <img src="imagenes/hackaton.jpg" alt="Certificado Espacio Educa" style="max-width:320px;">
+        <button class="modal-cerrar" id="modal-certificado-cerrar" title="Cerrar">&times;</button>
+    </div>
+</div>
     <section id="proyectos">
     <h2 class="sobre-mi-titulo">Proyectos</h2>
     <div class="carrusel-contenedor">
@@ -247,6 +352,13 @@
   <div class="modal-contenido" style="max-width:400px;">
     <img id="modal-perfil-img" src="imagenes/yo2.jpg" alt="Cesar Jimenez" style="max-width:320px;">
     <button class="modal-cerrar" id="modal-perfil-cerrar" title="Cerrar">&times;</button>
+  </div>
+</div>
+<div id="modal-sobre-mi">
+  <div class="modal-contenido">
+    <img src="imagenes/hackaton.jpg" alt="César Jiménez">
+    <button class="modal-cerrar" id="modal-sobre-mi-cerrar" title="Cerrar">&times;</button>
+    <div style="color:#181f2a;font-weight:bold;margin-top:8px;">¡Hola! Soy César Jiménez</div>
   </div>
 </div>
     <script src="script.js"></script>

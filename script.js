@@ -168,3 +168,55 @@ if (perfilImg && modalPerfil && modalPerfilCerrar) {
         if (e.target === modalPerfil) modalPerfil.classList.remove('activo');
     });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const tituloEfecto = document.getElementById('sobre-mi-titulo-efecto');
+    const modalSobreMi = document.getElementById('modal-sobre-mi');
+    const cerrarSobreMi = document.getElementById('modal-sobre-mi-cerrar');
+    if (tituloEfecto && modalSobreMi && cerrarSobreMi) {
+        tituloEfecto.addEventListener('click', () => {
+            modalSobreMi.classList.add('activo');
+        });
+        cerrarSobreMi.addEventListener('click', () => {
+            modalSobreMi.classList.remove('activo');
+        });
+        modalSobreMi.addEventListener('click', (e) => {
+            if (e.target === modalSobreMi) modalSobreMi.classList.remove('activo');
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const diplomaEfecto = document.getElementById('sobre-mi-diploma-efecto');
+    const modalSobreMi = document.getElementById('modal-sobre-mi');
+    const cerrarSobreMi = document.getElementById('modal-sobre-mi-cerrar');
+    if (diplomaEfecto && modalSobreMi && cerrarSobreMi) {
+        diplomaEfecto.addEventListener('click', () => {
+            modalSobreMi.classList.add('activo');
+        });
+        cerrarSobreMi.addEventListener('click', () => {
+            modalSobreMi.classList.remove('activo');
+        });
+        modalSobreMi.addEventListener('click', (e) => {
+            if (e.target === modalSobreMi) modalSobreMi.classList.remove('activo');
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const btnCertificado = document.getElementById('btn-certificado');
+    const modalCertificado = document.getElementById('modal-certificado');
+    const cerrarCertificado = document.getElementById('modal-certificado-cerrar');
+    if (btnCertificado && modalCertificado && cerrarCertificado) {
+        btnCertificado.addEventListener('click', (e) => {
+            e.stopPropagation();
+            modalCertificado.classList.add('activo');
+        });
+        cerrarCertificado.addEventListener('click', () => {
+            modalCertificado.classList.remove('activo');
+        });
+        modalCertificado.addEventListener('click', (e) => {
+            if (e.target === modalCertificado) modalCertificado.classList.remove('activo');
+        });
+    }
+});
