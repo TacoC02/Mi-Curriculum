@@ -1711,4 +1711,13 @@ footer::before {
 .qr-icon:focus i {
     color: #181f2a !important;
     text-shadow: 0 0 12px #ffd700, 0 0 24px #ffd700;
+    animation: qr-wave 0.5s;
+}
+
+@keyframes qr-wave {
+  0% { transform: rotate(0deg) scale(1);}
+  25% { transform: rotate(8deg) scale(1.15);}
+  50% { transform: rotate(-8deg) scale(1.08);}
+  75% { transform: rotate(4deg) scale(1.12);}
+  100% { transform: rotate(0deg) scale(1);}
 }
