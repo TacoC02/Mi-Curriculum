@@ -220,3 +220,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const abrirQR = document.getElementById('abrir-modal-qr');
+    const modalQR = document.getElementById('modal-qr');
+    const cerrarQR = document.getElementById('cerrar-modal-qr');
+    if (abrirQR && modalQR && cerrarQR) {
+        abrirQR.addEventListener('click', () => {
+            modalQR.classList.add('activo');
+        });
+        cerrarQR.addEventListener('click', () => {
+            modalQR.classList.remove('activo');
+        });
+        modalQR.addEventListener('click', (e) => {
+            if (e.target === modalQR) modalQR.classList.remove('activo');
+        });
+    }
+});

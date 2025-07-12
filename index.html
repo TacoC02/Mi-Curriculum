@@ -19,13 +19,16 @@
 </head>
 <body>
     <header>
-        <div class="perfil">
-            <img src="imagenes/yo2.jpg" class="perfil-img" alt="Cesar Jimenez">
-            <div class="perfil-info">
-                <h1>Cesar Jimenez</h1>
-                <p class="sub-info">Desarrollador Web / estudiante</p>
-            </div>
-        </div>
+<div class="perfil">
+    <img src="imagenes/yo2.jpg" class="perfil-img" alt="Cesar Jimenez">
+    <span class="qr-icon" id="abrir-modal-qr" title="Ver QR">
+        <i class="fas fa-qrcode"></i>
+    </span>
+    <div class="perfil-info">
+        <h1>Cesar Jimenez</h1>
+        <p class="sub-info">Desarrollador Web / estudiante</p>
+    </div>
+</div>
         <nav>
     <a href="#sobre-mi"><i class="fas fa-user-astronaut"></i> Sobre mí</a>
     <a href="#habilidades"><i class="fas fa-tools"></i> Habilidades</a>
@@ -356,9 +359,15 @@
 </div>
 <div id="modal-sobre-mi">
   <div class="modal-contenido">
-    <img src="imagenes/hackaton.jpg" alt="César Jiménez">
+    <img src="imagenes/hackaton.jpg" alt="Hackaton">
     <button class="modal-cerrar" id="modal-sobre-mi-cerrar" title="Cerrar">&times;</button>
     <div style="color:#181f2a;font-weight:bold;margin-top:8px;">¡Hola! Soy César Jiménez</div>
+  </div>
+</div>
+<div id="modal-qr" class="modal-proyecto">
+  <div class="modal-contenido" style="max-width:420px;">
+    <img src="imagenes/qr.png" alt="Código QR" style="max-width:340px;">
+    <button class="modal-cerrar" id="cerrar-modal-qr" title="Cerrar">&times;</button>
   </div>
 </div>
     <script src="script.js"></script>
