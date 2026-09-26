@@ -42,33 +42,140 @@ document.addEventListener('DOMContentLoaded', () => {
     const proyectos = carrusel.querySelectorAll('a');
     const btnIzq = document.getElementById('btn-izq');
     const btnDer = document.getElementById('btn-der');
+    const puntos = document.getElementById('carrusel-puntos');
+    const contador = document.getElementById('carrusel-contador');
     const total = proyectos.length;
     let pos = 0;
+    let scrollTimer;
+    let pointerStartX = 0;
+    let scrollStartX = 0;
+    let pointerDown = false;
+    let dragging = false;
+    let suppressClick = false;
 
-    function mostrar(pos) {
-        carrusel.scrollTo({
-            left: proyectos[pos].offsetLeft - proyectos[0].offsetLeft,
-            behavior: 'smooth'
+    const botonesPunto = [...proyectos].map((proyecto, index) => {
+        const boton = document.createElement('button');
+        const titulo = proyecto.querySelector('strong').textContent.trim();
+        boton.type = 'button';
+        boton.className = 'carrusel-punto';
+        boton.setAttribute('aria-label', `Mostrar proyecto ${index + 1}: ${titulo}`);
+        boton.addEventListener('click', () => mostrar(index));
+        puntos.append(boton);
+        return boton;
+    });
+
+    function actualizarEstado() {
+        proyectos.forEach((proyecto, index) => {
+            const esActual = index === pos;
+            proyecto.classList.toggle('is-current', esActual);
+            if (esActual) {
+                proyecto.setAttribute('aria-current', 'true');
+            } else {
+                proyecto.removeAttribute('aria-current');
+            }
+            botonesPunto[index].classList.toggle('is-current', esActual);
+            botonesPunto[index].setAttribute('aria-current', esActual ? 'true' : 'false');
         });
+
         btnIzq.disabled = pos === 0;
         btnDer.disabled = pos === total - 1;
+        contador.textContent = `${String(pos + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')} · ${proyectos[pos].querySelector('strong').textContent.trim()}`;
+    }
+
+    function mostrar(indice, behavior = 'smooth') {
+        pos = Math.max(0, Math.min(indice, total - 1));
+        const proyecto = proyectos[pos];
+        carrusel.scrollTo({
+            left: proyecto.offsetLeft - (carrusel.clientWidth - proyecto.clientWidth) / 2,
+            behavior
+        });
+        actualizarEstado();
     }
 
     btnDer.onclick = () => {
-        if (pos < total - 1) {
-            pos++;
-        }
-        mostrar(pos);
+        mostrar(pos + 1);
     };
 
     btnIzq.onclick = () => {
-        if (pos > 0) {
-            pos--;
-        }
-        mostrar(pos);
+        mostrar(pos - 1);
     };
 
-    mostrar(pos);
+    function sincronizarPosicion() {
+        const centro = carrusel.scrollLeft + carrusel.clientWidth / 2;
+        let indiceCercano = 0;
+        let distanciaCercana = Infinity;
+
+        proyectos.forEach((proyecto, index) => {
+            const centroProyecto = proyecto.offsetLeft + proyecto.clientWidth / 2;
+            const distancia = Math.abs(centroProyecto - centro);
+            if (distancia < distanciaCercana) {
+                distanciaCercana = distancia;
+                indiceCercano = index;
+            }
+        });
+
+        pos = indiceCercano;
+        actualizarEstado();
+    }
+
+    carrusel.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(sincronizarPosicion, 60);
+    }, { passive: true });
+
+    carrusel.addEventListener('pointerdown', event => {
+        if (event.pointerType !== 'mouse' || event.button !== 0) return;
+        pointerDown = true;
+        pointerStartX = event.clientX;
+        scrollStartX = carrusel.scrollLeft;
+        dragging = false;
+    });
+
+    window.addEventListener('pointermove', event => {
+        if (!pointerDown) return;
+        const desplazamiento = event.clientX - pointerStartX;
+        if (Math.abs(desplazamiento) <= 5 && !dragging) return;
+        dragging = true;
+        carrusel.classList.add('is-dragging');
+        carrusel.scrollLeft = scrollStartX - desplazamiento;
+        sincronizarPosicion();
+        event.preventDefault();
+    }, { passive: false });
+
+    function terminarArrastre() {
+        if (!pointerDown) return;
+        pointerDown = false;
+        carrusel.classList.remove('is-dragging');
+        if (dragging) {
+            suppressClick = true;
+            requestAnimationFrame(() => { suppressClick = false; });
+            requestAnimationFrame(sincronizarPosicion);
+        }
+        dragging = false;
+    }
+
+    window.addEventListener('pointerup', terminarArrastre);
+    window.addEventListener('pointercancel', terminarArrastre);
+    carrusel.addEventListener('dragstart', event => event.preventDefault());
+
+    carrusel.addEventListener('click', event => {
+        if (!suppressClick) return;
+        event.preventDefault();
+        event.stopPropagation();
+    }, true);
+
+    carrusel.addEventListener('keydown', event => {
+        if (event.key === 'ArrowRight') {
+            event.preventDefault();
+            mostrar(pos + 1);
+        } else if (event.key === 'ArrowLeft') {
+            event.preventDefault();
+            mostrar(pos - 1);
+        }
+    });
+
+    window.addEventListener('resize', () => mostrar(pos, 'auto'), { passive: true });
+    mostrar(0, 'auto');
 
 
     function animarBarras() {

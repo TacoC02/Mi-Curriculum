@@ -33,10 +33,10 @@
         <nav>
     <a href="#sobre-mi"><i class="fas fa-user-astronaut"></i> Sobre mí</a>
     <a href="#habilidades"><i class="fas fa-tools"></i> Habilidades</a>
-    <a href="#proyectos"><i class="fas fa-gamepad"></i> Proyectos</a>
-    <a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a>
     <a href="#metas-y-objetivos"><i class="fas fa-bullseye"></i> Metas y Objetivos</a>
     <a href="#estudios"><i class="fas fa-graduation-cap"></i> Educación</a>
+    <a href="#proyectos"><i class="fas fa-gamepad"></i> Proyectos</a>
+    <a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a>
 </nav>
     </header>
     <section id="sobre-mi">
@@ -276,7 +276,7 @@
     <h2 class="sobre-mi-titulo">Proyectos</h2>
     <div class="carrusel-contenedor">
         <button class="carrusel-btn" id="btn-izq" type="button" aria-label="Ver proyectos anteriores" disabled>&#8592;</button>
-        <div class="proyectos-carrusel" id="proyectos-carrusel">
+        <div class="proyectos-carrusel" id="proyectos-carrusel" role="region" aria-label="Carrusel de proyectos" tabindex="0">
             <a href="https://tacoc02.github.io/Mario-Bross/" target="_blank" rel="noopener noreferrer" data-desc="¿Alguna vez soñaste con crear tu propio videojuego? Este proyecto recrea el clásico Mario Bros con HTML, CSS y JavaScript.">
                 <img src="imagenes/mario.png" alt="Proyecto 1">
                 <div class="fondo-proyectos"><strong class="letra-mario">Juego Mario Bros</strong></div>
@@ -311,6 +311,10 @@
             </a>
         </div>
         <button class="carrusel-btn" id="btn-der" type="button" aria-label="Ver proyectos siguientes">&#8594;</button>
+    </div>
+    <div class="carrusel-pie">
+        <div class="carrusel-puntos" id="carrusel-puntos" role="group" aria-label="Elegir proyecto"></div>
+        <p class="carrusel-contador" id="carrusel-contador" aria-live="polite"></p>
     </div>
 </section>
  <div id="modal-proyecto" class="modal-proyecto">
